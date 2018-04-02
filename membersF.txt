@@ -1,5 +1,2 @@
-Alex;1;200
-Dan;2;300
-Ana;3;400
-andreea;4;500
-george;5;400
+
+andreea;5;2147483646

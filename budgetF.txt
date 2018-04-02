@@ -7,4 +7,3 @@ cost;90;1
 cost;10;2
 cost;10;100
 cost;10;3
-income 345 2

@@ -2,10 +2,10 @@ package model;
 
 public class Member {
 	private String name;
-	private int id;
-	private int income;
+	private Integer id;
+	private Integer income;
 
-	public Member(String name, int id, int income){
+	public Member(String name, Integer id, Integer income){
 		this.name= name;
 		this.id=id;
 		this.income  = income;
@@ -15,13 +15,13 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

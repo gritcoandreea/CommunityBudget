@@ -35,7 +35,7 @@ public class MemberRepository {
 
     public boolean addMember(Member m) {
 
-        if (m.getId() < Integer.MAX_VALUE && m.getId() > 0 && !m.getName().equals("") && m.getIncome() != 0) {
+        if (m.getId() <= Integer.MAX_VALUE && m.getId() > 0  && !m.getName().equals("")&& !m.getName().contains(" ") && !m.getName().matches(".*\\d+.*") && m.getIncome() <= Integer.MAX_VALUE && m.getIncome() > 0) {
             BufferedWriter out = null;
             try {
                 out = new BufferedWriter(new FileWriter("membersF.txt", true));
