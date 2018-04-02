@@ -3,7 +3,3 @@ Dan;2;300
 Ana;3;400
 andreea;4;500
 george;5;400
-abc 6 345
-eee 7 123
-ddd 8 123
-rrr 9 234

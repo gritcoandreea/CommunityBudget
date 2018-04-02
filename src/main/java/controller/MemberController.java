@@ -22,12 +22,12 @@ public class MemberController {
         this.mr = newMr;
     }
 
-    public void addMember(Member aMemebr) {
-        mr.addMember(aMemebr);
+    public boolean addMember(Member aMemebr) {
+       return mr.addMember(aMemebr);
     }
 
-    public void addEntry(Entry oneEntry) {
-        mr.addEntry(oneEntry);
+    public boolean addEntry(Entry oneEntry) {
+        return mr.addEntry(oneEntry);
     }
 
     public List<Entry> allEntriesForUser(int id) {

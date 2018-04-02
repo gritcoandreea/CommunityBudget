@@ -51,7 +51,7 @@ public class MemberRepository {
             if (k == 1) {
                 try {
                     out.newLine();
-                    out.write(m.getName() + " " + m.getId() + " " + m.getIncome());
+                    out.write(m.getName() + ";" + m.getId() + ";" + m.getIncome());
                     members.add(m);
                     out.close();
                 } catch (IOException e) {
@@ -67,6 +67,8 @@ public class MemberRepository {
                 }
                 return false;
             }
+        }else{
+            return false;
         }
 
 
