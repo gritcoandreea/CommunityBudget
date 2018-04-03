@@ -77,32 +77,43 @@ public class MemberRepository {
     }
 
     public boolean addEntry(Entry e) {
-
-
         if (e.getIdMember() < Integer.MAX_VALUE && e.getValue() > 0 && (e.getType().equals("income") || e.getType().equals("cost"))) {
             BufferedWriter out = null;
             try {
                 out = new BufferedWriter(new FileWriter("budgetF.txt", true));
             } catch (IOException ex) {
                 ex.printStackTrace();
+                return false;
             }
-            try {
-                out.newLine();
-                out.write(e.getType() + " " + e.getValue() + " " + e.getIdMember());
-                entries.add(e);
-                out.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            int k = 1;
+            for (Entry entry : entries) {
+                if (entry.getValue() ==e.getValue() && entry.getType().equals(e.getType()) && entry.getIdMember() == e.getIdMember()) {
+                    k = 0;
+                }
             }
-
-
+            if (k == 1) {
+                try {
+                    out.write(e.getType() + " " + e.getValue() + " " + e.getIdMember());
+                    entries.add(e);
+                    out.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                    return false;
+                }
+            }else{
+                System.err.println("This code already exists");
+                try {
+                    out.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                    return false;
+                }
+                return false;
+            }
         } else {
             return false;
         }
-
-
         return true;
-
     }
 
     public List<Entry> getAllEntriesForUser(int id) {
