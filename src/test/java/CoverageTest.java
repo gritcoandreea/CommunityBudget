@@ -28,7 +28,35 @@ public class CoverageTest {
 
         controller.addEntry(entry);
         Assert.assertFalse(controller.addEntry(entry));
-        
+
     }
+
+    @Test()
+    public void test_tc_3_addEntry(){
+        repo = new MemberRepository();
+        controller = new MemberController(repo);
+
+        Entry entry = new Entry("income", 400, 1);
+        Entry entry2 = new Entry("cost",300, 4);
+
+        controller.addEntry(entry);
+        Assert.assertTrue(controller.addEntry(entry2));
+
+    }
+
+    @Test()
+    public void test_tc_4_addEntry(){
+        repo = new MemberRepository();
+        controller = new MemberController(repo);
+
+        repo.clearEntries();
+
+        Entry entry = new Entry("income",400,3);
+
+        Assert.assertTrue(controller.addEntry(entry));
+
+    }
+
+
 
 }

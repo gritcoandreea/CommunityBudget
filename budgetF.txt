@@ -1,1 +1,1 @@
-income 300 3
+income;400;3

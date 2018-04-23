@@ -1,16 +1,9 @@
 package repository;
 
-import java.io.BufferedReader;
+import java.io.*;
 
 import model.*;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -93,7 +86,7 @@ public class MemberRepository {
             }
             if (k == 1) {
                 try {
-                    out.write(e.getType() + " " + e.getValue() + " " + e.getIdMember());
+                    out.write(e.getType() + ";" + e.getValue() + ";" + e.getIdMember()+"\n");
                     entries.add(e);
                     out.close();
                 } catch (IOException ex) {
@@ -169,5 +162,19 @@ public class MemberRepository {
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
+    }
+
+
+    public void clearEntries(){
+        this.entries.clear();
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("budgetF.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
