@@ -43,7 +43,6 @@ public class MemberRepository {
             }
             if (k == 1) {
                 try {
-                    out.newLine();
                     out.write(m.getName() + ";" + m.getId() + ";" + m.getIncome());
                     members.add(m);
                     out.close();
@@ -176,5 +175,17 @@ public class MemberRepository {
             e.printStackTrace();
         }
 
+    }
+
+    public void clearMembers(){
+        this.members.clear();
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("membersF.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
